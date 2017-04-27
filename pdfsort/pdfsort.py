@@ -44,7 +44,7 @@ class PDFSort:
     def rotate_page_numbers(self, pages_string, degrees):
         page_numbers = self.get_page_numbers(pages_string)
         pdf = PyPDF2.PdfFileWriter()
-        for index in range(self.pdfPages)):
+        for index in range(self.pdfPages):
             new_page = self.pdf_temp.getPage(index)
             if index in page_numbers:
                 new_page.rotateClockwise(degrees)
