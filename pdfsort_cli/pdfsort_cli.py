@@ -63,3 +63,12 @@ if __name__ == '__main__':
 ## TODO Write to a directory
 ## TODO click output
 ## TODO Tkinter
+## os.chdir(path)
+# from os import walk
+#
+# f = []
+# d = []
+# for (dirpath, dirnames, filenames) in walk('kedsort'):
+#     f.extend(filenames)
+#     d.extend(dirnames)
+#     break
