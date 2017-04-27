@@ -1,19 +1,62 @@
 from Tkinter import *
-import tkMessageBox
-import Tkinter
 
-top = Tk()
+def func1():
+    print("in func1")
 
-Lb1 = Listbox(top)
-Lb1.insert(1, "Python")
-Lb1.insert(2, "Perl")
-Lb1.insert(3, "C")
-Lb1.insert(4, "PHP")
-Lb1.insert(5, "JSP")
-Lb1.insert(6, "Ruby")
+def func2():
+    print("in func2")
 
-Lb1.pack()
-top.mainloop()
+def selection():
+    try:
+        dictionary[listbox.selection_get()]()
+    except:
+        pass
+
+root = Tk()
+
+frame = Frame(root)
+frame.pack()
+
+dictionary = {"1":func1, "2":func2}
+
+items = StringVar(value=tuple(sorted(dictionary.keys())))
+
+listbox = Listbox(frame, listvariable=items, width=15, height=5)
+listbox.grid(column=0, row=2, rowspan=6, sticky=("n", "w", "e", "s"))
+listbox.focus()
+
+selectButton = Button(frame, text='Select', underline = 0, command=selection)
+selectButton.grid(column=2, row=4, sticky="e", padx=50, pady=50)
+
+root.bind('<Double-1>', lambda x: selectButton.invoke())
+
+root.mainloop()
+
+
+# from Tkinter import *
+# import tkMessageBox
+# import Tkinter
+#
+# top = Tk()
+#
+#
+#
+# Lb1 = Listbox(top)
+# Lb1.insert(1, "Python")
+# Lb1.insert(2, "Perl")
+# Lb1.insert(3, "C")
+# Lb1.insert(4, "PHP")
+# Lb1.insert(5, "JSP")
+# Lb1.insert(6, "Ruby")
+#
+# Lb1.pack()
+# top.mainloop()
+
+## TODO Click event
+## TODO Double Click event
+## TODO back event
+## TODO show folders, pdf files
+##
 
 # from Tkinter import *
 # import tkFont
