@@ -1,3 +1,8 @@
+## TODO order of ops: flip, rotate, generate, split
+## |explorer| pop up dialog, messaging?
+## TODO write to directories
+#### write_directory(directory): self.directoory = directory (same as pdf_name - .pdf?)
+
 from Tkinter import *
 
 def func1():
