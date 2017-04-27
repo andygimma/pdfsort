@@ -11,7 +11,6 @@ class PDFSort:
             self.create_temp_pdf()
             self.pdf_pages = self.pdf_reader.numPages
             self.generated_pages = []
-            self.pdf.close()
         except IOError:
             print "Could not read file"
     def create_temp_pdf(self):
@@ -66,6 +65,25 @@ class PDFSort:
             pdf_out = open(pdf['name'], 'wb')
             pdf['pdf'].write(pdf_out)
             pdf_out.close()
+    def split_existing_pdf(self, pdf_name, increment):
+        pdf = open(pdf_name, 'rb')
+        pdf_reader = PyPDF2.PdfFileReader(pdf, False)
+        pdf_writer = PyPDF2.PdfFileWriter()
+        counter = 0
+        file_number = 1
+        for index in range(pdf_reader.numPages):
+            page = pdf_reader.getPage(index)
+            pdf_writer.addPage(page)
+            counter += 1
+            if counter == increment:
+                incremented_name = pdf_name.replace('.pdf', '') + '-' + str(file_number) + '.pdf'
+                pdf_out = open(incremented_name, 'wb')
+                pdf_writer.write(pdf_out)
+                pdf_out.close()
+                pdf_writer = PyPDF2.PdfFileWriter()
+                counter = 0
+                file_number +=1
+
 
 # generate_pdf(name, pages_list)
 # self.generated_pdfs = [{name: pdf1, pages_list: array}]
