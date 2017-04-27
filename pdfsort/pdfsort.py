@@ -83,7 +83,8 @@ class PDFSort:
                 pdf_writer = PyPDF2.PdfFileWriter()
                 counter = 0
                 file_number +=1
-
+    def close(self):
+        self.pdf.close()
 
 # generate_pdf(name, pages_list)
 # self.generated_pdfs = [{name: pdf1, pages_list: array}]
