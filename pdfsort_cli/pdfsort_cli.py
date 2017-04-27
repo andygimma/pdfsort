@@ -60,3 +60,6 @@ def split(input_pdf, increment):
 
 if __name__ == '__main__':
     cli()
+## TODO Write to a directory
+## TODO click output
+## TODO Tkinter
