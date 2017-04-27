@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        pdfsort=pdfsort_cli.pdfsort_cli:cli
+    
