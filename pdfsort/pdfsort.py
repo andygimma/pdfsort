@@ -11,6 +11,7 @@ class PDFSort:
             self.create_temp_pdf()
             self.pdf_pages = self.pdf_reader.numPages
             self.generated_pages = []
+            self.pdf.close()
         except IOError:
             print "Could not read file"
     def create_temp_pdf(self):
