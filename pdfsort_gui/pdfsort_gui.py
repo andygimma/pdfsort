@@ -25,6 +25,21 @@ class Example(Frame):
         self.pack(fill=BOTH, expand=1)
         self.centerWindow()
 
+        self.initUI()
+
+
+    def initUI(self):
+
+        self.parent.title("Quit button")
+        self.style = Style()
+        self.style.theme_use("default")
+
+        self.pack(fill=BOTH, expand=1)
+
+        quitButton = Button(self, text="Quit",
+            command=self.quit)
+        quitButton.place(x=50, y=50)
+
 
     def centerWindow(self):
 
